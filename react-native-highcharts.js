@@ -7,6 +7,7 @@ import {
     Image,
     Dimensions
 } from 'react-native';
+
 import { WebView } from "react-native-webview";
 
 const win = Dimensions.get('window');
@@ -79,7 +80,7 @@ class ChartWeb extends Component {
         return (
           <View style={this.props.style}>
               <WebView
-                  onLayout={this.reRenderWebView}
+                  onLayout={this.reRenderWebView.bind(this)}
                   style={styles.full}
                   source={{ html: concatHTML, baseUrl: 'web/' }}
                   javaScriptEnabled={true}
